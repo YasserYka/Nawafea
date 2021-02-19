@@ -1,0 +1,115 @@
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+  
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar-brand{
+    font-size: 30px;
+}
+
+.navbar{
+    margin: 0%;
+    font-size: 20px;
+}
+
+.logo{
+    margin-right: 15%;
+}
+
+.display-3{
+    text-align: center;
+    margin-top: 6%;
+}
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+
+.success{
+    border-color: #4CAF50;
+    margin-top: 5%;
+    margin-right: 45%;
+    margin-bottom: 5%;
+    border: 2px solid rgb(209, 203, 203);
+    background-color: white;
+    width: 10%;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+}
+
+.success:hover{
+    background-color: #dad6d6;
+    color: rgb(0, 0, 0);
+}
+
+
+.footer{
+    margin-top: 7%;
+    text-align: center;
+    background: green;
+    color:white;
+    font-size: 25px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
