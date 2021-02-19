@@ -1,36 +1,34 @@
 import os
 
 from flask import Flask, render_template
-from . import settings, controllers, models
-from .extensions import db
+from . import controllers, models
+from app.extensions import setup_db
 
+database_filename = "database.db"
 project_dir = os.path.dirname(os.path.abspath(__file__))
+database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 
-def create_app(config_object=settings):
+def create_app():
     # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_object(config_object)
+    app = Flask(__name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    register_extensions(app)
+    setup_db(app)
     register_blueprints(app)
-    register_errorhandlers(app)
+    #register_errorhandlers(app)
+
     return app
 
-def register_extensions(app):
-    """Register Flask extensions."""
-    db.init_app(app)
-
-    with app.app_context():
-        db.create_all()
-    return None
 
 def register_blueprints(app):
     """Register Flask blueprints."""
+    app.register_blueprint(controllers.auction.blueprint)
     app.register_blueprint(controllers.home.blueprint)
-    app.register_blueprint(controllers.auth.blueprint)
-    app.register_blueprint(controllers.tutorial.blueprint)
+    app.register_blueprint(controllers.product.blueprint)
     return None
 
+'''
 def register_errorhandlers(app):
     """Register error handlers."""
     @app.errorhandler(401)
@@ -46,3 +44,4 @@ def register_errorhandlers(app):
         return render_template('500.html'), 500
 
     return None
+'''
