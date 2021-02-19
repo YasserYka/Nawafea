@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="static/css/Login.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <img class="logo" src="static/img/Logo.png" width="100" height="35">
+          </div>
+      
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> الحساب <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="logintemplate">تسجيل الدخول</a></li>
+                      <li><a href="signuptemplate">تسجيل جديد</a></li>
+                    </ul>
+                  </li>
+              <li><a href="auction">السوق المركزي</a></li>
+              <li><a href="home">الصفحة الرئيسية</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container">
+        <div class="row">
+          <div class="Signup col-xs-12 col-md-4 col-lg-4">
+              <h1>ليس لديك حساب؟</h1>
+              <h2><a href="signuptemplate">تسجيل حساب جديد</a></h2>
+          </div>
+          
+          <div class="col-xs-6 col-md-8 col-lg-8">
+              <h1 class="text-center">تسجيل الدخول</h1>
+              <form action="">
+                  <label for="email"><b>البريد الالكتروني</b></label>
+                  <input type="text" placeholder="ادخال البريد الالكتروني" name="email" id="email" required>
+              
+                  <label for="psw"><b>كلمة المرور</b></label>
+                  <input type="password" placeholder="ادخال كلمة المرور" name="psw" id="psw" required>
+
+                  <button class="btn success">تسجيل الدخول</button>
+                </form>
+          </div>
+        </div>
+    </div>
+
+
+      <div class="col-md-12 footer">
+        <script>
+        document.write(' جميع الحقوق محفوظة، نوافع ');
+        document.write(new Date().getFullYear());
+        document.write(' Copyright ');
+        document.write(' &copy; ');
+        </script>
+      </div>
+    
+</body>
+</html>
