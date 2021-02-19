@@ -14,8 +14,10 @@ To get started, install Python and Postgres on your local computer if you don't 
 **Step 1. Clone the code into a fresh folder**
 
 ```
-$ git clone https://github.com/MLH/mlh-hackathon-flask-starter.git
-$ cd mlh-hackathon-flask-starter
+$ git clone https://github.com/YasserYka/Nawafea.git
+
+$ cd Nawafea
+
 ```
 
 **Step 2. Create a Virtual Environment and install Dependencies.**
