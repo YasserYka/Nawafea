@@ -20,6 +20,7 @@ class Product(db.Model):
         self.imagename = imagename
         self.description = description
         self.price = price
+        self.supiler_name = supiler_name
 
     def insert(self):
         db.session.add(self)
@@ -39,4 +40,5 @@ class Product(db.Model):
             'imagename': self.imagename,
             'description': self.description,
             'price': self.price,
+            'supiler_name': self.supiler_name
         }

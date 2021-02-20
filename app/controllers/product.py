@@ -47,7 +47,7 @@ def purchase_product(id):
 
     purchase.insert()
 
-    return render_template("auction/Auction.html", list_of_auctions=[auction.json() for auction in auctions])
+    return jsonify(data=purchase.json())
 
 @blueprint.route('', methods=['POST'])
 def create_product():
@@ -57,7 +57,7 @@ def create_product():
     name = request.form.get('name', None)
     description = request.form.get('description', None)
     price = request.form.get('price', None)
-    supiler_name = request.form.get('supiler_name')
+    supiler_name = request.form.get('supiler_name', None)
 
     if name is None or description is None or price is None or supiler_name is None:
         abort(422)
@@ -78,7 +78,7 @@ def create_product():
 
     auction.insert()
 
-    return jsonify(data=product.json())
+    return render_template("auction/Auction.html", list_of_products=[product.json() for product in Product.query.all()])
 
 
 @blueprint.route('/<int:id>', methods=['PATCH'])

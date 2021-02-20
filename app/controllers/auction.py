@@ -14,9 +14,9 @@ blueprint = Blueprint('auction', __name__, url_prefix='/auction')
 @blueprint.route('', methods=['GET'])
 def get_auctions():
 
-    auctions = Auction.query.all()
+    products = Product.query.all()
 
-    return render_template("auction/Auction.html", list_of_auctions=[auction.json() for auction in auctions])
+    return render_template("auction/Auction.html", list_of_products=[product.json() for product in products])
 
 @blueprint.route('<int:id>/bid', methods=['POST'])
 def create_bids(id):
