@@ -12,8 +12,9 @@ class Product(db.Model):
     auction_id = db.Column(db.Integer, db.ForeignKey('auction.id'))
     purchase_id = db.Column(db.Integer, db.ForeignKey('purchase.id'))
     sold = db.Column(db.Boolean(), default=False, nullable=False)
-
-    def __init__(self, name, description, price, image=None, imagename=None):
+    supiler_name = db.Column(db.String(80), nullable=False)
+    
+    def __init__(self, name, description, supiler_name, price, image=None, imagename=None):
         self.name = name
         self.image = image
         self.imagename = imagename

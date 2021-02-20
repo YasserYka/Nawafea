@@ -1,5 +1,5 @@
 
-from flask import request, abort
+from flask import request, abort, render_template
 from flask import Blueprint
 
 import datetime
@@ -7,6 +7,7 @@ import datetime
 from ..models.product import Product
 from ..models.purchase import Purchase
 from flask.json import jsonify
+from ..models.auction import Auction
 
 blueprint = Blueprint('product', __name__, url_prefix='/product')
 
@@ -46,7 +47,7 @@ def purchase_product(id):
 
     purchase.insert()
 
-    return jsonify(data=purchase.json())
+    return render_template("auction/Auction.html", list_of_auctions=[auction.json() for auction in auctions])
 
 @blueprint.route('', methods=['POST'])
 def create_product():
@@ -56,11 +57,12 @@ def create_product():
     name = request.form.get('name', None)
     description = request.form.get('description', None)
     price = request.form.get('price', None)
+    supiler_name = request.form.get('supiler_name')
 
-    if name is None or description is None or price is None:
+    if name is None or description is None or price is None or supiler_name is None:
         abort(422)
 
-    product = Product(name=name, price=price, description=description)
+    product = Product(name=name, price=price, description=description, supiler_name=supiler_name)
 
     if  'file' in request.files: 
         img = request.files['file']
@@ -69,6 +71,12 @@ def create_product():
         product.imagename = img.filename
 
     product.insert()
+
+    auction = Auction(initial_bid=0, end_date=datetime.datetime.now() + datetime.timedelta(days=1), description=description, title=name)
+
+    auction.products.append(product)
+
+    auction.insert()
 
     return jsonify(data=product.json())
 
